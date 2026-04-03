@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image to PDF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>Image to PDF</h1>
+        <p class="tagline">Turn a photo or screenshot into a downloadable PDF in your browser.</p>
+      </header>
+
+      <main class="card">
+        <div
+          class="dropzone"
+          id="dropzone"
+          tabindex="0"
+          role="button"
+          aria-label="Drop an image here or click to choose"
+        >
+          <input
+            type="file"
+            id="file"
+            accept="image/*"
+            class="file-input"
+            aria-hidden="true"
+          />
+          <div class="dropzone-inner">
+            <span class="dropzone-icon" aria-hidden="true">⬆</span>
+            <p><strong>Drop an image here</strong> or click to browse</p>
+            <p class="hint">PNG, JPEG, WebP, GIF, BMP</p>
+          </div>
+        </div>
+
+        <div class="preview-wrap hidden" id="previewWrap">
+          <img id="preview" alt="Selected image preview" />
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn primary" id="convert" disabled>
+            Download PDF
+          </button>
+          <button type="button" class="btn ghost" id="clear" disabled>
+            Clear
+          </button>
+        </div>
+        <p class="status" id="status" role="status"></p>
+      </main>
+
+      <footer class="footer">
+        <p>Files stay on your device — nothing is uploaded.</p>
+      </footer>
+    </div>
+
+    <script src="jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
